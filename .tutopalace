@@ -125,5 +125,10 @@ fi
 	alias fbban="sudo fail2ban-client set sshd banip "   	# + IP
 	alias fbunban="sudo fail2ban-client set sshd unbanip "	# + IP
 
+######################################################
+## -- log
+######################################################
+
+	alias sshlog="sudo tail -f /var/log/auth.log"
 
 	
