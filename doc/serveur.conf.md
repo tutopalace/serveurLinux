@@ -1,11 +1,8 @@
 
-## INFO : 
-## Cette DOC avance au rythme des videos disponibles sur la chaine @tutopalace
-## https://youtube.com/@tutopalace
+# [youtube.com/@tutopalace](https://youtube.com/@tutopalace)
+#### DOCUMENTATION des videos disponibles sur la chaine [@tutopalace](https://youtube.com/@tutopalace)
 
-
-### Pour Securiser la configuration d'un serveur Ubuntu Linux
-
+# Sécuriser la configuration d'un serveur Ubuntu Linux
 
 # 1. Mise à jour du serveur  
 
