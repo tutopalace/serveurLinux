@@ -114,7 +114,7 @@ fi
 ## -- IPTABLES 
 ######################################################
 
-	alias ipt="iptables -L -vn --line-number"
+	alias ipt="sudo iptables -L -vn --line-number"
 	
 ######################################################
 ## -- Fail2ban
