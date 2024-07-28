@@ -11,7 +11,7 @@
 # Remplacer le port ssh (ici 52222 ) =>   si possible:  port > 50000
 
 
-apt install iptables iptables-persitent 
+apt install iptables iptables-persistent 
 
 /usr/sbin/iptables -F
 /usr/sbin/iptables -X
@@ -58,10 +58,10 @@ apt install iptables iptables-persitent
 
 
 # /!\ A chaque execution du script /!\ 
-# => Sauvegarde configuration (Debian/Ubuntu) :
+#    => Sauvegarde configuration (Debian/Ubuntu) :
 
-sudo /usr/sbin/iptables-save > /etc/iptables/rules.v4
-sudo /usr/sbin/ip6tables-save > /etc/iptables/rules.v6
+# sudo /usr/sbin/iptables-save > /etc/iptables/rules.v4
+# sudo /usr/sbin/ip6tables-save > /etc/iptables/rules.v6
 
 
 

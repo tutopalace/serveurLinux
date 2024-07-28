@@ -1,6 +1,12 @@
+# DOCUMENTATION des videos disponibles sur la chaine @tutopalace
+# Sécuriser un serveur Ubuntu Linux  (Serveur privé virtuel Cloud, Raspberry Pi, ...) 
+#
+# youtube:	https://youtube.com/@tutopalace
+# github: 	https://github.com/tutopalace/serveurLinux 
+
 
 # IPTABLES - Juste l'essentiel !
-# GITHUB:  git clone http://github.com/tutopalace/tp 
+# git clone http://github.com/tutopalace/serveurLinux 
 
 
 1. IPTABLES => NFTABLES   (NETFILTER)
@@ -71,8 +77,8 @@
 
 
 # Sauvegarder les règles (Ubuntu/Debian) après reboot: 
-    iptables-save > /etc/iptables/rules.v4
-    ip6tables-save > /etc/iptables/rules.v6
+#    iptables-save > /etc/iptables/rules.v4
+#    ip6tables-save > /etc/iptables/rules.v6
 
 
 
