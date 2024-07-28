@@ -116,5 +116,10 @@ fi
 
 	alias ipt="iptables -L -vn --line-number"
 	
+######################################################
+## -- Fail2ban
+######################################################
 
+	alias fbssh="sudo fail2ban-client status sshd"
 
+	
