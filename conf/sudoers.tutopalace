@@ -1,0 +1,7 @@
+
+# 3.2 Ajout permission SUDO pour tutopalace 
+# /etc/sudoers.d/tutopalace
+# Remplacer le user "tutopalace" par le user de ton choix
+
+tutopalace ALL=(ALL) NOPASSWD: ALL
+
