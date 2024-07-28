@@ -103,12 +103,17 @@ fi
 	
 	alias dr="docker run -itd --name " 	# <container_name> <image>
 	alias de="docker exec -it " 		# <container_name> bash	
-        alias drm="docker rm -f "
+    alias drm="docker rm -f "
 	alias din="docker inspect "
 
+	alias dn="docker network "
 #	alias ds="docker search"
 
 
- 
+######################################################
+## -- IPTABLES 
+######################################################
+
+	alias ipt="iptables -L -vn --line-number"
 
 
