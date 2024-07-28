@@ -77,14 +77,14 @@
 
 
 # Sauvegarder les règles (Ubuntu/Debian) après reboot: 
-#    iptables-save > /etc/iptables/rules.v4
-#    ip6tables-save > /etc/iptables/rules.v6
+    iptables-save > /etc/iptables/rules.v4
+    ip6tables-save > /etc/iptables/rules.v6
 
 
 
 # Autres actions : 
 
-## Lister les règles avec numéro de ligne  
+## Lister les règles avec numéro de ligne  (alias)
     iptables -L -vn --line-number
 
 ## Suppression d'une ligne (impose le numéro)  
