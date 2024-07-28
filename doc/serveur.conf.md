@@ -4,45 +4,53 @@
 ## https://youtube.com/@tutopalace
 
 
-## Pour Securiser la configuration d'un serveur Ubuntu Linux
+### Pour Securiser la configuration d'un serveur Ubuntu Linux
 
 
 # 1. Mise à jour du serveur  
-apt update && apt -y full-upgrade && apt -y clean && apt -y autoremove
+
+	apt update && apt -y full-upgrade && apt -y clean && apt -y autoremove
 
 
 # 2. Installation utilitaires (paquets)   
-apt install vim git net-tools ssh
+
+	apt install vim git net-tools ssh
 
 
-# 3. Création user tutopalace
-# Remplacer le user "tutopalace" par le user de ton choix
+# 3. Création user tutopalace  
+Remplacer le user "tutopalace" par le user de ton choix   
 
-useradd -m -s /bin/bash tutopalace
+	useradd -m -s /bin/bash tutopalace
 
 
 # 3.1 Password user tutopalace
-# Remplacer le user "tutopalace" par le user de ton choix
+Remplacer le user "tutopalace" par le user de ton choix  
 
-passwd tutopalace
+	passwd tutopalace
 
 
 # 3.2 Ajout permission SUDO pour tutopalace 
-# Remplacer le user "tutopalace" par le user de ton choix
+Remplacer le user "tutopalace" par le user de ton choix  
 
-echo "tutopalace ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/tutopalace
+````tutopalace.sudo
 
+# /etc/sudoers.d/tutopalace
+tutopalace ALL=(ALL) NOPASSWD: ALL
+
+````
 
 # 4.1 SShd - Configuration du serveur SSH
-# Remplacer le user "tutopalace" par le user de ton choix
-# Remplacer le port:  port > 50000 (c'est mieux)
-# Supprimer tous les autres fichiers dans /etc/ssh/sshd_config.d
-# Penser à redémarrer le serveur SSH :   
-# systemctl restart ssh
+Remplacer le user "tutopalace" par le user de ton choix  
+Remplacer le port:  port > 50000 (c'est mieux)  
+Supprimer tous les autres fichiers dans /etc/ssh/sshd_config.d  
+Penser à redémarrer le serveur SSH :    
+systemctl restart ssh
 
-cat<<EOF1 > /etc/ssh/sshd_config.d/99-tutopalace.conf
+````/etc/ssh/sshd_config.d/99-tutopalace.conf
 
-    # Attention: Remplace le user "tutopalace" et le port éventuellement 
+    #/etc/ssh/sshd_config.d/99-tutopalace.conf
+    # Attention: Remplace le user "tutopalace" 
+    # et le port éventuellement 
     
     PermitRootLogin no
     PasswordAuthentication no
@@ -51,13 +59,16 @@ cat<<EOF1 > /etc/ssh/sshd_config.d/99-tutopalace.conf
     AllowUsers tutopalace
     LogLevel VERBOSE
 
-EOF1
+````
 
 
 # 4.2 ".ssh/config" - Configuration du client SSH 
-# Remplacer TOUS les champs par ta configuration  Host (alias), Hostname (ip), Port, User, IdentityFile 
+Remplacer TOUS les champs par ta configuration  Host (alias), Hostname (ip), Port, User, IdentityFile 
 
-cat<<EOF2 > /home/tutopalace/.ssh/config
+
+````config
+
+    #/home/tutopalace/.ssh/config
 
     Host      	    tutopalace.com  tp 
     HostName  	    192.168.1.200
@@ -65,14 +76,15 @@ cat<<EOF2 > /home/tutopalace/.ssh/config
     User      	    tutopalace
     IdentityFile    ~/.ssh/id_rsa.uc
 
-EOF2
+````
 
 
 # 5.1 IPTABLES
-# Remplacer le user "tutopalace" par le user de ton choix
-# Remplacer le port ssh (ici 52222 ) =>   port > 50000
+Remplacer le user "tutopalace" par le user de ton choix  
+Remplacer le port ssh (ici 52222 ) =>   port > 50000
 
-cat<<EOF3 > /home/tutopalace/bin/fw.sh
+````fw.sh
+# /home/tutopalace/bin/fw.sh
 
     #!/bin/bash
     apt install iptables iptables-persitent 
@@ -125,11 +137,11 @@ cat<<EOF3 > /home/tutopalace/bin/fw.sh
     sudo /usr/sbin/iptables-save > /etc/iptables/rules.v4
     sudo /usr/sbin/ip6tables-save > /etc/iptables/rules.v6
 
-
-EOF3
-
+````
 
 
-# Suite à venir avec video sur la chaine youtube.com/@tutopalace  ;-)
+
+
+## Suite à venir avec video sur la chaine youtube.com/@tutopalace  ;-)
 
 
