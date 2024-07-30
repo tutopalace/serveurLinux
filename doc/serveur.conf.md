@@ -72,7 +72,9 @@ tutopalace ALL=(ALL) NOPASSWD: ALL
 
 
 ## 4.2 "SSH" - Configuration du client SSH 
-> Remplacer TOUS les champs par ta configuration  Host (alias), Hostname (ip), Port, User, IdentityFile 
+> Remplacer TOUS les champs par ta configuration  Host (alias), Hostname (ip), Port, User, IdentityFile
+> Remplacer le port ssh (ici 22 ) => port > 50000
+
 
 ````config
 
@@ -80,7 +82,7 @@ tutopalace ALL=(ALL) NOPASSWD: ALL
 
     Host      	    tutopalace.com  tp 
     HostName  	    192.168.1.200
-    Port      	    52222
+    Port      	    22				# A modifier port > 50000
     User      	    tutopalace
     IdentityFile    ~/.ssh/id_rsa.tp
 
