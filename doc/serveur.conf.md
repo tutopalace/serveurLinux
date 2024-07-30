@@ -186,7 +186,9 @@ apt install iptables iptables-persistent
 
 
 ## 6. fail2ban
-Remplace le user "tutopalace" par le user de ton choix  
+Remplace le user "tutopalace" par le user de ton choix
+Remplacer le port ssh (ici 22 ) =>   port > 50000
+
 
 ````jail.tutopalace.conf
 # /etc/fail2ban/jail.d/jail.tutopalace.conf
@@ -195,7 +197,7 @@ Remplace le user "tutopalace" par le user de ton choix
 #logpath = %(sshd_log)s       # déjà mentionner dans /etc/fail2ban/jail.conf
 #backend = %(sshd_backend)s   # déjà mentionner dans /etc/fail2ban/jail.conf
 enabled = true
-port    = 62222
+port    = 22
 bantime  = 1d
 findtime  = 20m
 maxretry = 3
