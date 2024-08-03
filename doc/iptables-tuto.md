@@ -1,7 +1,7 @@
 # DOCUMENTATION des videos disponibles sur la chaine @tutopalace
 > Sécuriser un serveur Ubuntu Linux  (Serveur privé virtuel Cloud, Raspberry Pi, ...) 
 
-> youtube:	https://youtube.com/@tutopalace
+> youtube:	https://youtube.com/@tutopalace    
 > github: 	https://github.com/tutopalace/serveurLinux 
 
 
