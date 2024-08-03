@@ -28,10 +28,11 @@ apt update && apt install iptables iptables-persistent
 /usr/sbin/iptables -A INPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
 
-## dns/53 - http/80 - https/443 - ssh/62222/tcp - ntp,timedatectl/123/udp
+## TCP: dns/53 - http/80 - https/443 - ssh/22/tcp 
 /usr/sbin/iptables -A INPUT -p tcp -m multiport --dport 80,443,22 -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -p tcp -m multiport --dport 53,80,443,22 -j ACCEPT
 
+## UDP: dns/53 - http/80 - https/443 - ssh/22/tcp - ntp,timedatectl/123/udp
 /usr/sbin/iptables -A INPUT -p udp -m multiport --dport 80,443 -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -p udp -m multiport --dport 53,80,443,123 -j ACCEPT
 
@@ -64,4 +65,5 @@ sudo /usr/sbin/ip6tables-save > /etc/iptables/rules.v6
 # => CentOS/RockyLinux/RHEL/Fedora:  
 #sudo /sbin/iptables-save > /etc/sysconfig/iptables  
 #sudo /sbin/ip6tables-save > /etc/sysconfig/ip6tables
+
 
