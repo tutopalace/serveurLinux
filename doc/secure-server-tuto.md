@@ -240,7 +240,7 @@ PS1='\[\033[01;32m\]\u\[\033[00m\]@\h:\[\033[01;34m\]\w\[\033[00m\] \$ '
 ````
 
 > Sourcer le fichier d'environnement    
-> Ou mettre ce qui suit dans "$[HOME}/.profile"
+> Ou mettre ce qui suit dans "${HOME}/.profile"
 
     source .tutopalace 
 
