@@ -57,15 +57,15 @@ tutopalace ALL=(ALL) NOPASSWD: ALL
 
 > Création clé (si besoin)  
 
-    ssh-keygen -f .ssh/id_rsa.tp -t rsa -b 4096           	# remplacer tp
+    ssh-keygen -f .ssh/id_rsa.tp -t rsa -b 4096           		# remplacer tp
 
 > Copie de la clé publique sur le serveur  
 
-    ssh-copy-id -i .ssh/id_rsa.tp.pub tutopalace@IP_SERVER	# remplacer tp, tutopalace, IP_SERVER
+    ssh-copy-id -i .ssh/id_rsa.tp.pub tutopalace@IP_SERVER		# remplacer tp, tutopalace, IP_SERVER
 
 > Test de la clé  
 
-    ssh -i .ssh/id_rsa.tp tutopalace@IP_SERVER			# remplacer tp, tutopalace, IP_SERVER
+    ssh -i .ssh/id_rsa.tp tutopalace@IP_SERVER				# remplacer tp, tutopalace, IP_SERVER
 
 
 
@@ -99,8 +99,8 @@ tutopalace ALL=(ALL) NOPASSWD: ALL
 PermitRootLogin no
 PasswordAuthentication no
 PubkeyAuthentication yes
-Port 22                     # A modifier port > 50000
-AllowUsers tutopalace
+Port 22                     	# A modifier port > 50000
+AllowUsers tutopalace		# user à remplacer
 LogLevel VERBOSE
 
 ````
@@ -191,8 +191,6 @@ Remplace le user "tutopalace" par le user de ton choix
 # /etc/fail2ban/jail.d/jail.tutopalace.conf
     
 [sshd]
-#logpath = %(sshd_log)s       # déjà mentionner dans /etc/fail2ban/jail.conf
-#backend = %(sshd_backend)s   # déjà mentionner dans /etc/fail2ban/jail.conf
 enabled = true
 port    = 22
 bantime  = 1d
@@ -248,25 +246,6 @@ alias fbunban='sudo fail2ban-client set sshd unbanip ' 	#+IP
 
 
 
-## 8. CRON - Mettre à jour le systéme automatiquement
-> Utiliser plutôt : crontab -e 
-
-````tutopalace
-# /var/spool/cron/crontabs/tutopalace
-
-# WARNING - Ne pas oublier les permissions SUDO (User) 
-# m h  dom mon dow   command
-
-# 4h04 => reboot
-4 4 * * * 	 sudo /sbin/reboot
-
-# 6h06 => maj.sh
-6 6 * * *  	sudo /home/tutopalace/bin/maj.sh
-
-# 18h18 => maj.sh
-18 18 * * *  sudo /home/tutopalace/bin/maj.sh
-
-````
 
 
 ## 9. Désactivez les comptes root, ubuntu
