@@ -217,24 +217,24 @@ backend = systemd
 export EDITOR=vim
 PS1='\[\033[01;32m\]\u\[\033[00m\]@\h:\[\033[01;34m\]\w\[\033[00m\] \$ '
 
-alias sudo="sudo "
-alias    s="sudo "
+	alias sudo="sudo "
+	alias    s="sudo "
+	
+	alias ls="ls --color=auto"
+	alias ll="ls -lh"
+	alias la="ls -a"
+	alias lla="ls -la"
 
-alias ls="ls --color=auto"
-alias ll="ls -lh"
-alias la="ls -a"
-alias lla="ls -la"
-
-alias grep="grep -E -i --color=auto"
+	alias grep="grep -E -i --color=auto"
 
 # iptables
-alias ipt="sudo iptables -L -vn --line-number"
-alias ipt6="sudo ip6tables -L -vn --line-number"
+	alias ipt="sudo iptables -L -vn --line-number"
+	alias ipt6="sudo ip6tables -L -vn --line-number"
 
 # fail2ban
-alias fbssh='sudo fail2ban-client status sshd'
-alias fbban='sudo fail2ban-client set sshd banip ' 	#+IP
-alias fbunban='sudo fail2ban-client set sshd unbanip ' 	#+IP
+	alias fbssh='sudo fail2ban-client status sshd'
+	alias fbban='sudo fail2ban-client set sshd banip ' 	#+IP
+	alias fbunban='sudo fail2ban-client set sshd unbanip ' 	#+IP
 
 
 ````
