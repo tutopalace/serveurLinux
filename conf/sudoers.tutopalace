@@ -9,5 +9,5 @@
 # 
 # /etc/sudoers.d/tutopalace
 
-tutopalace ALL=(ALL) NOPASSWD: ALL
+tutopalace ALL=(ALL) NOPASSWD: ALL  	# remplacer le user 
 
