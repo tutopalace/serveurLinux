@@ -67,12 +67,12 @@
     ip6tables -P FORWARD DROP
 
     ### lo: 
-    ip6tables -t filter -A INPUT -i lo -j ACCEPT
-    ip6tables -t filter -A OUTPUT -o lo -j ACCEPT
+    #ip6tables -t filter -A INPUT -i lo -j ACCEPT
+    #ip6tables -t filter -A OUTPUT -o lo -j ACCEPT
 
     ### Etat (state)
-    ip6tables -t filter -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-    ip6tables -t filter -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    #ip6tables -t filter -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    #ip6tables -t filter -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 
 

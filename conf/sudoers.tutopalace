@@ -5,8 +5,9 @@
 # github: 	https://github.com/tutopalace/serveurLinux 
 #
 # SUDO - Ajout droits pour tutopalace 
-# /etc/sudoers.d/tutopalace
 # Remplace le user "tutopalace" par le user de ton choix
+# 
+# /etc/sudoers.d/tutopalace
 
 tutopalace ALL=(ALL) NOPASSWD: ALL
 

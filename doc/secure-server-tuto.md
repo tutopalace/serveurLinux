@@ -8,7 +8,7 @@
 # Sécuriser la configuration d'un serveur Ubuntu Linux
 
 > **WARNING** : 
-> Le port ssh dans la doc est le 22,   
+> Le port ssh dans la doc est le 52222,   
 > n'oublier pas de le modifier avec : 
 >  - un port > 50000 
 >
@@ -72,19 +72,17 @@ tutopalace ALL=(ALL) NOPASSWD: ALL
 
 
 ## 4.2 "SSH" - Configuration du client SSH 
-> Remplacer TOUS les champs par ta configuration  Host (alias), Hostname (ip), Port, User, IdentityFile
-> Remplacer le port ssh (ici 22 ) => port > 50000
-
+> Remplacer TOUS les champs par ta configuration  Host (alias), Hostname (ip), Port, User, IdentityFile 
 
 ````config
 
-#/home/tutopalace/.ssh/config
+    #/home/tutopalace/.ssh/config
 
-Host      	    tutopalace.com  tp 
-HostName  	    192.168.1.200
-Port      	    22			# A modifier port > 50000
-User      	    tutopalace
-IdentityFile    ~/.ssh/id_rsa.tp
+    Host      	    tutopalace.com  tp 
+    HostName  	    192.168.1.200
+    Port      	    52222
+    User      	    tutopalace
+    IdentityFile    ~/.ssh/id_rsa.tp
 
 ````
 
@@ -103,7 +101,7 @@ IdentityFile    ~/.ssh/id_rsa.tp
 PermitRootLogin no
 PasswordAuthentication no
 PubkeyAuthentication yes
-Port 22                     		# A modifier port > 50000
+Port 22                     # A modifier port > 50000
 AllowUsers tutopalace
 LogLevel VERBOSE
 
@@ -145,8 +143,7 @@ apt install iptables iptables-persistent
 /usr/sbin/iptables -A INPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
 
-## dns/53 - http/80 - https/443 - ssh/22/tcp - ntp,timedatectl/123/udp
-## Remplacer le port ssh (ici 22 ) => port > 50000
+## dns/53 - http/80 - https/443 - ssh/62222/tcp - ntp,timedatectl/123/udp
 /usr/sbin/iptables -A INPUT -p tcp -m multiport --dport 80,443,22 -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -p tcp -m multiport --dport 53,80,443,22 -j ACCEPT
 
@@ -166,12 +163,12 @@ apt install iptables iptables-persistent
 /usr/sbin/ip6tables -P FORWARD DROP
 
 ## LO
-/usr/sbin/ip6tables -t filter -A INPUT -i lo -j ACCEPT
-/usr/sbin/ip6tables -t filter -A OUTPUT -o lo -j ACCEPT
+#/usr/sbin/ip6tables -t filter -A INPUT -i lo -j ACCEPT
+#/usr/sbin/ip6tables -t filter -A OUTPUT -o lo -j ACCEPT
 
 ## STATE
-/usr/sbin/ip6tables -t filter -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-/usr/sbin/ip6tables -t filter -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+#/usr/sbin/ip6tables -t filter -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+#/usr/sbin/ip6tables -t filter -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 
 # /!\ A chaque execution du script /!\
@@ -189,18 +186,16 @@ apt install iptables iptables-persistent
 
 
 ## 6. fail2ban
-Remplace le user "tutopalace" par le user de ton choix
-Remplacer le port ssh (ici 22 ) =>   port > 50000
-
+Remplace le user "tutopalace" par le user de ton choix  
 
 ````jail.tutopalace.conf
 # /etc/fail2ban/jail.d/jail.tutopalace.conf
     
 [sshd]
-#logpath = %(sshd_log)s       		# déjà mentionner dans /etc/fail2ban/jail.conf
-#backend = %(sshd_backend)s   		# déjà mentionner dans /etc/fail2ban/jail.conf
+#logpath = %(sshd_log)s       # déjà mentionner dans /etc/fail2ban/jail.conf
+#backend = %(sshd_backend)s   # déjà mentionner dans /etc/fail2ban/jail.conf
 enabled = true
-port    = 22				# A modifier port > 50000
+port    = 62222
 bantime  = 1d
 findtime  = 20m
 maxretry = 3
