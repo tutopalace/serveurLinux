@@ -42,7 +42,7 @@ Remplacer le user "tutopalace" par le user de ton choix
 	passwd tutopalace
 
 
-## 3.2 Ajout permission SUDO pour tutopalace 
+## 3.2 Ajout droits SUDO pour tutopalace 
 Remplacer le user "tutopalace" par le user de ton choix  
 
 ````tutopalace.sudo
@@ -53,21 +53,19 @@ tutopalace ALL=(ALL) NOPASSWD: ALL
 ````
 
 
-## 4.1 ".ssh/config" - Configuration du client SSH  
-> Coté Client  
-> Remplacer "tutopalace", "tp", "IP_SERVER"   
+## 4.1 Génération des clés, copie sur le serveur et test  
 
 > Création clé (si besoin)  
 
-    ssh-keygen -f .ssh/id_rsa.tp -t rsa -b 4096
+    ssh-keygen -f .ssh/id_rsa.tp -t rsa -b 4096           	# remplacer tp
 
 > Copie de la clé publique sur le serveur  
 
-    ssh-copy-id -i .ssh/id_rsa.tp.pub tutopalace@IP_SERVER
+    ssh-copy-id -i .ssh/id_rsa.tp.pub tutopalace@IP_SERVER	# remplacer tp, tutopalace, IP_SERVER
 
 > Test de la clé  
 
-    ssh -i .ssh/id_rsa.tp tutopalace@IP_SERVER
+    ssh -i .ssh/id_rsa.tp tutopalace@IP_SERVER			# remplacer tp, tutopalace, IP_SERVER
 
 
 
