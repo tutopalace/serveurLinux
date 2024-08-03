@@ -8,7 +8,7 @@
 # Sécuriser la configuration d'un serveur Ubuntu Linux
 
 > **WARNING** : 
-> Le port ssh dans la doc est le 52222,   
+> Le port ssh dans la doc est le 22,   
 > n'oublier pas de le modifier avec : 
 >  - un port > 50000 
 >
@@ -78,7 +78,7 @@ tutopalace ALL=(ALL) NOPASSWD: ALL
 
     Host      	    tutopalace.com  tp 
     HostName  	    192.168.1.200
-    Port      	    52222
+    Port      	    22				
     User      	    tutopalace
     IdentityFile    ~/.ssh/id_rsa.tp
 
@@ -194,7 +194,7 @@ Remplace le user "tutopalace" par le user de ton choix
 #logpath = %(sshd_log)s       # déjà mentionner dans /etc/fail2ban/jail.conf
 #backend = %(sshd_backend)s   # déjà mentionner dans /etc/fail2ban/jail.conf
 enabled = true
-port    = 62222
+port    = 22
 bantime  = 1d
 findtime  = 20m
 maxretry = 3
@@ -235,8 +235,8 @@ alias ipt6="sudo ip6tables -L -vn --line-number"
 
 # fail2ban
 alias fbssh='sudo fail2ban-client status sshd'
-alias fbban='sudo fail2ban-client set sshd banip ' #+IP
-alias fbunban='sudo fail2ban-client set sshd unbanip ' #+IP
+alias fbban='sudo fail2ban-client set sshd banip ' 	#+IP
+alias fbunban='sudo fail2ban-client set sshd unbanip ' 	#+IP
 
 
 ````
@@ -274,69 +274,8 @@ alias fbunban='sudo fail2ban-client set sshd unbanip ' #+IP
     sudo usermod -p '!' root
     sudo usermod -p '!' ubuntu
 
+    le mieux étant : 
+    sudo userdel ubuntu 
 
 
 
-  
-  
----
-
-
-
-## NOTES UTILES A REVOIR :
-
-    sudo update-alternatives --config editor 
-    chage -W 30 username  
-
-Mon IP 
-
-    ip=$(who | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}' | head -n1)
-
-
-Ajoute la règle iptables pour autoriser mon adresse IP
-
-    echo "Accept $ip:  /usr/sbin/iptables -I INPUT 1 -s $ip -j ACCEPT"
-
-    /usr/sbin/iptables -I INPUT 1 -s $ip -j ACCEPT || echo "Error ACCEPT $ip !"
-
-
-
-> Remplace la regle pour tout loguer à l'exception :
-
-   - des ports 53 (dns, dnssec), 80 (http), 443 (https)
-   - d'une adresse IP (la mienne :)
-
-    echo "Replace rule LOG: ( ! --dport 53,80,443  ! -s $ip )"
-
-    /usr/sbin/iptables -R INPUT 1 ! -m multiport ! --dport 53,80,443 ! -s $ip -j LOG   
-
-ou   
-
-    sudo /usr/sbin/iptables -A INPUT 1 -j LOG --log-prefix "iptables: "
-
-
---- 
-> Sauvegarde config IPTABLES  (iptables-persistent)  
-
-
-> Debian / Ubuntu 
-
-    sudo /usr/sbin/iptables-save > /etc/iptables/rules.v4  
-    sudo /usr/sbin/ip6tables-save > /etc/iptables/rules.v6
-
-> CentOS/RockyLinux/RHEL/Fedora:  
-
-    sudo /sbin/iptables-save > /etc/sysconfig/iptables  
-    sudo /sbin/ip6tables-save > /etc/sysconfig/ip6tables
-
-
----
-
-> Suite à venir avec video sur la chaine 
-> [@tutopalace](https://youtube.com/@tutopalace)
-
-   - Développement de script bash 
-   - Installation docker sur le VPS (VM)
-   - Installation Apache2
-   - Installation NextCloud
-   - ...
