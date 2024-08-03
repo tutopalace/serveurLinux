@@ -1,12 +1,12 @@
 # DOCUMENTATION des videos disponibles sur la chaine @tutopalace
-# Sécuriser un serveur Ubuntu Linux  (Serveur privé virtuel Cloud, Raspberry Pi, ...) 
-#
-# youtube:	https://youtube.com/@tutopalace
-# github: 	https://github.com/tutopalace/serveurLinux 
+> Sécuriser un serveur Ubuntu Linux  (Serveur privé virtuel Cloud, Raspberry Pi, ...) 
+
+> youtube:	https://youtube.com/@tutopalace
+> github: 	https://github.com/tutopalace/serveurLinux 
 
 
-# IPTABLES - Juste l'essentiel !
-# git clone http://github.com/tutopalace/serveurLinux 
+> IPTABLES - Juste l'essentiel !
+> git clone http://github.com/tutopalace/serveurLinux 
 
 
 1. IPTABLES => NFTABLES   (NETFILTER)
@@ -15,9 +15,9 @@
         mangle, [filter], nat, raw.
 
 
-# Nous on ne s'intéresse qu'à la table "filter" 
+> Nous on ne s'intéresse qu'à la table "filter" 
+> On efface tout !
 
-# On efface tout !
 ### Remove all  
     iptables -F
     iptables -X
