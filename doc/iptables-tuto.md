@@ -5,7 +5,7 @@
 > github: 	https://github.com/tutopalace/serveurLinux 
 
 
-> IPTABLES - Juste l'essentiel !
+> IPTABLES - Juste l'essentiel !   
 > git clone http://github.com/tutopalace/serveurLinux 
 
 
@@ -15,7 +15,7 @@
         mangle, [filter], nat, raw.
 
 
-> Nous on ne s'intéresse qu'à la table "filter" 
+> Nous on ne s'intéresse qu'à la table "filter"   
 > On efface tout !
 
 ### Remove all  
