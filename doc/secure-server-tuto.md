@@ -53,7 +53,7 @@ tutopalace ALL=(ALL) NOPASSWD: ALL
 ````
 
 
-## 4.1 Génération des clés, copie sur le serveur et test  
+## 4.1 SSH - Génération des clés, copie sur le serveur et test  
 
 > Création clé (si besoin)  
 
@@ -69,7 +69,7 @@ tutopalace ALL=(ALL) NOPASSWD: ALL
 
 
 
-## 4.2 "SSH" - Configuration du client SSH 
+## 4.2 SSH - Configuration du client SSH 
 > Remplacer TOUS les champs par ta configuration  Host (alias), Hostname (ip), Port, User, IdentityFile 
 
 ````config
@@ -138,13 +138,14 @@ apt install iptables iptables-persistent
 /usr/sbin/iptables -t filter -A OUTPUT -o lo -j ACCEPT
 
 ## state
-/usr/sbin/iptables -A INPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
-/usr/sbin/iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
+/usr/sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+/usr/sbin/iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-## dns/53 - http/80 - https/443 - ssh/62222/tcp - ntp,timedatectl/123/udp
+## tcp: dns/53 - http/80 - https/443 - ssh/22/tcp - ntp,timedatectl/123/udp
 /usr/sbin/iptables -A INPUT -p tcp -m multiport --dport 80,443,22 -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -p tcp -m multiport --dport 53,80,443,22 -j ACCEPT
 
+## udp: dns/53 - http/80 - https/443 - ssh/22/tcp - ntp,timedatectl/123/udp
 /usr/sbin/iptables -A INPUT -p udp -m multiport --dport 80,443,123 -j ACCEPT
 /usr/sbin/iptables -A OUTPUT -p udp -m multiport --dport 53,80,443,123 -j ACCEPT
 
