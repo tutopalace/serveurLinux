@@ -25,8 +25,8 @@ apt update && apt install iptables iptables-persistent
 /usr/sbin/iptables -t filter -A OUTPUT -o lo -j ACCEPT
 
 ## state
-/usr/sbin/iptables -A INPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
-/usr/sbin/iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
+/usr/sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+/usr/sbin/iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 ## TCP: dns/53 - http/80 - https/443 - ssh/22/tcp 
 /usr/sbin/iptables -A INPUT -p tcp -m multiport --dport 80,443,22 -j ACCEPT
