@@ -1,10 +1,12 @@
 #!/bin/bash
+# @tutopalace 2024
 # DOCUMENTATION des videos disponibles sur la chaine @tutopalace
 # Sécuriser un serveur Ubuntu Linux  
 # youtube:	https://youtube.com/@tutopalace
 # github: 	https://github.com/tutopalace/serveurLinux 
 #
 # IPTABLES
+# Voir doc dans dépot (repository) github.com 
 # Remplacer le user "tutopalace" par le user de ton choix  
 # Remplacer le port ssh (ici 22 ) =>   si possible:  port > 50000
 #
