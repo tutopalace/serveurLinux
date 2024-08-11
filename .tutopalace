@@ -30,29 +30,6 @@ FIN
 export EDITOR=vim 
 
 
-# Si Linux uniquement (vm, docker, ...) 
-if [[ "$SHELL" == "/bin/bash"  ]] || [[ "$SHELL" == "/bin/sh" ]]; then
-
-	echo linux
-	echo $PATH | grep -q '~/bin' || export PATH="~/bin:$PATH"
-
-        # PS1='\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \$ '
-        PS1='\[\033[01;32m\]\u\[\033[00m\]@\h:\[\033[01;34m\]\w\[\033[00m\] \$ '
-fi
-
-
-# Si macOS 
-# zsh moins intéressant que bash mais adopté pour cause de licence
-# bash étant maintenant sous GPL3 
-# A adapter pour windows en fonction du terminal et du shell par défaut.  
-if [[ "$SHELL" == "/bin/zsh" ]]; then
-
-	echo macOS
-	echo $PATH | grep -q '~/bin' || export PATH="~/bin:$PATH"
-	echo $PATH | grep -q '/opt/homebrew/bin' || export PATH="/opt/homebrew/bin:$PATH"
-fi
-
-
 ######################################################
 ## -- Systeme  
 ######################################################
@@ -67,8 +44,6 @@ fi
 	alias lla="ls -alh"
 
 	alias vi="vim "
-	alias tm="tmux "
-
 
 
 ######################################################
@@ -103,7 +78,7 @@ fi
 	
 	alias dr="docker run -itd --name " 	# <container_name> <image>
 	alias de="docker exec -it " 		# <container_name> bash	
-    alias drm="docker rm -f "
+        alias drm="docker rm -f "
 	alias din="docker inspect "
 
 	alias dn="docker network "
@@ -124,6 +99,7 @@ fi
 	alias fbssh="sudo fail2ban-client status sshd"
 	alias fbban="sudo fail2ban-client set sshd banip "   	# + IP
 	alias fbunban="sudo fail2ban-client set sshd unbanip "	# + IP
+
 
 ######################################################
 ## -- log
